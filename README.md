@@ -71,6 +71,8 @@ Explicit route mirrors under `app/en/**` (no middleware rewrite) keep static exp
 | Local / Vercel | *(default)* | No `basePath`, normal Next server build |
 | GitHub Pages | `GITHUB_PAGES=true` or `GITHUB_ACTIONS=true` | `output: "export"`, `trailingSlash`, `basePath`/`assetPrefix` for repo segment |
 
+After a Pages export, CI runs `npm run fix:rsc` (`scripts/fix-rsc-segment-paths.mjs`) so App Router segment files are flat (`__next.team.__PAGE__.txt`). Next.js can otherwise nest them on Windows builds (`__next.team/__PAGE__.txt`) while the client requests dotted names — console 404s, broken prefetch (Next.js #92339).
+
 ```bash
 # Default (Vercel / Node)
 npm run build
@@ -81,6 +83,7 @@ npm run start
 $env:GITHUB_PAGES='true'
 $env:NEXT_PUBLIC_REPO_NAME='bifrost-site'   # default if unset
 npm run build
+npm run fix:rsc   # required after local Windows export; no-op if already flat
 # static files → out/
 ```
 

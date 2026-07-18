@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "fix:rsc": "node scripts/fix-rsc-segment-paths.mjs",
     "start": "next start",
     "lint": "eslint",
     "smoke:i18n": "node scripts/smoke-i18n.mjs",
