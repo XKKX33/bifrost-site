@@ -173,12 +173,12 @@ check("zh kuang role", zhSrc.includes("数据智能与模型策略"));
 check("en kuang role", enSrc.includes("Data Intelligence & Modeling"));
 check("zh member-b role Product Strategy-ish", zhSrc.includes("产品策略"));
 check("en member-b role", enSrc.includes("Product Strategy"));
-check("zh member-c role", zhSrc.includes("AI 工程") || zhSrc.includes("AI工程"));
-check("en member-c role", enSrc.includes("AI Engineering"));
+check("zh member-c role", zhSrc.includes("数据分析与算法工程"));
+check("en member-c role", enSrc.includes("Data Analytics & Algorithm Engineering"));
 
-// Placeholders
-check("zh bioComingSoon on B/C", (zhSrc.match(/bioComingSoon:\s*true/g) || []).length >= 2);
-check("en bioComingSoon on B/C", (enSrc.match(/bioComingSoon:\s*true/g) || []).length >= 2);
+// All three member resumes are populated.
+check("zh full member bios", (zhSrc.match(/bioComingSoon:\s*false/g) || []).length >= 3);
+check("en full member bios", (enSrc.match(/bioComingSoon:\s*false/g) || []).length >= 3);
 check("zh coming soon label", zhSrc.includes("简历内容待补充"));
 check("en coming soon label", enSrc.includes("Bio coming soon"));
 

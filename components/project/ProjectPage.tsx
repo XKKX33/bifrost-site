@@ -83,7 +83,7 @@ export function ProjectPage({ locale }: ProjectPageProps) {
       </section>
 
       {/* 2. Why exists — 3 problems */}
-      <section className="project-section" aria-labelledby="project-why-title">
+      <section className="project-section project-section--why" aria-labelledby="project-why-title">
         <header className="project-section__head">
           <p className="project-section__eyebrow">02</p>
           <h2 id="project-why-title" className="project-section__title">
@@ -106,7 +106,7 @@ export function ProjectPage({ locale }: ProjectPageProps) {
       </section>
 
       {/* 3. System flow — loopSteps */}
-      <section className="project-section" aria-labelledby="project-flow-title">
+      <section className="project-section project-section--flow" aria-labelledby="project-flow-title">
         <header className="project-section__head">
           <p className="project-section__eyebrow">03</p>
           <h2 id="project-flow-title" className="project-section__title">
@@ -133,7 +133,7 @@ export function ProjectPage({ locale }: ProjectPageProps) {
 
       {/* 4. Three capabilities / themes */}
       <section
-        className="project-section"
+        className="project-section project-section--capabilities"
         aria-labelledby="project-cap-title"
       >
         <header className="project-section__head">
@@ -169,7 +169,7 @@ export function ProjectPage({ locale }: ProjectPageProps) {
 
       {/* 6. Closed-loop story (reuses loopSteps as narrative beats) */}
       <section
-        className="project-section"
+        className="project-section project-section--story"
         aria-labelledby="project-story-title"
       >
         <header className="project-section__head">

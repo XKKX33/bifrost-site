@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AppChrome } from "@/components/chrome";
 import { getUi } from "@/content/i18n";
 import "./globals.css";
+import "./hybrid-project.css";
 
 const ui = getUi("zh");
 
