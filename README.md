@@ -4,45 +4,46 @@ Independent team brand site for BIFROST (Next.js App Router + TypeScript + Tailw
 
 ## Live
 
-- **GitHub Pages:** https://xkkx33.github.io/bifrost-site/
+- **Primary (Vercel):** https://bifrost-site-rho.vercel.app  
+  - Project dashboard: https://vercel.com/xkkx33s-projects/bifrost-site  
+  - Team/account: [xkkx33s-projects](https://vercel.com/xkkx33s-projects)
+- **Secondary (GitHub Pages, manual/legacy):** https://xkkx33.github.io/bifrost-site/
 - **Repository:** https://github.com/XKKX33/bifrost-site
 
 ### Deploy status (important)
 
 | Item | Current state |
 | --- | --- |
-| Live site | https://xkkx33.github.io/bifrost-site/ |
-| Pages source | **`gh-pages` branch** (legacy “Deploy from a branch”), **not** GitHub Actions |
-| Custom Actions workflow on remote | **Missing** — `deploy-pages.yml` is only local until pushed with `workflow` scope |
-| Auto-update when others push `main` | **NO** (until Actions is enabled; see below) |
+| **Primary live site** | https://bifrost-site-rho.vercel.app (Vercel production) |
+| Vercel project | `xkkx33s-projects/bifrost-site` — default Next.js build (**do not** set `GITHUB_PAGES=true` on Vercel) |
+| GitHub Pages | Secondary / manual fallback only |
+| Auto-deploy from `main` (Vercel) | Prefer connecting the GitHub repo in the Vercel dashboard (Git → Connect Repository → `XKKX33/bifrost-site`) |
 
-**Today:** only pushes to **`gh-pages`** update the live site. Pushes to `main` alone do **not**.
+**Preferred path:** push to `main` → Vercel production. GitHub Pages is optional static export only.
 
-#### One-time: enable auto-deploy from `main` (preferred)
-
-GitHub OAuth tokens need the **`workflow`** scope to create/update `.github/workflows/*`. Current `gh` login only has `repo` / `read:org` / `gist`.
+#### Vercel deploy (CLI)
 
 ```bash
-# 1) Re-auth with workflow scope (browser device flow)
-gh auth refresh -h github.com -s workflow,repo,read:org,gist
+# Auth once (browser device flow if needed)
+npx vercel login
+# or: npx vercel whoami
 
-# 2) Commit + push the local workflow (file already in this repo)
-git add .github/workflows/deploy-pages.yml
-git commit -m "ci: Deploy GitHub Pages on push to main"
-git push origin main
-
-# 3) Repo Settings → Pages → Build and deployment → Source: GitHub Actions
-#    (or after first successful run, switch from "Deploy from a branch")
-
-# 4) Confirm
-gh run list --repo XKKX33/bifrost-site
+cd bifrost-site
+# Do NOT set GITHUB_PAGES / GITHUB_ACTIONS for Vercel
+npx vercel --prod --yes
 ```
 
-Workflow: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) — on `push` to `main` / `workflow_dispatch`: `npm ci` → `GITHUB_PAGES=true` build → `fix:rsc` → `deploy-pages`.
+Dashboard: https://vercel.com/xkkx33s-projects/bifrost-site
 
-#### Manual redeploy (until Actions is live)
+If CLI cannot attach GitHub, link in UI: Project → Settings → Git → Connect `XKKX33/bifrost-site` (install Vercel GitHub App if prompted). Future `main` pushes then auto-deploy.
 
-Anyone with write access (or owner) after merging to `main`:
+#### GitHub Pages (secondary / manual)
+
+Pages remains a static-export fallback (`GITHUB_PAGES=true` + `basePath`). It is **not** the primary host.
+
+Optional Actions workflow: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) — needs `workflow` scope on `gh` to push, then repo Settings → Pages → Source: GitHub Actions.
+
+Manual Pages redeploy:
 
 ```powershell
 # From repo root (PowerShell)
@@ -51,11 +52,8 @@ $env:NEXT_PUBLIC_REPO_NAME='bifrost-site'
 npm ci
 npm run build
 npm run fix:rsc
-# then publish out/ to gh-pages, e.g.:
 npm run deploy:pages
 ```
-
-Or use GitHub UI: Actions is empty for custom deploys until step 2 above; until then update **`gh-pages`** only.
 
 ## Scripts
 
@@ -166,13 +164,15 @@ npm run smoke:privacy
 
 ## Design tokens
 
-Warm paper background + ink text; glacier gradient accents only on interactive elements:
+Morning-film canvas + ink; pastels are decorative washes only; CTA blue for interactive actions (see `app/globals.css` `:root`):
 
-- `--bg: #F2F0EA`
-- `--ink: #111111`
-- Glacier: `#62D8FF` → `#536BFF` → `#A45BFF`
+- `--bg: #F9F8F6` · `--ink: #1C2430` · `--ink-muted: #6B7280`
+- Pastels: peach / butter / mint / sky / lilac (ambient + chrome accents)
+- CTA: `--cta-start: #3B7FE8` → `--cta-end: #7EB6FF` (primary buttons; start-weighted fill + text-shadow for white label legibility)
+- Title wash (decorative): `#E8A898` → `#7EC8E3` → `#8FD9B8`
+- Film glacier alias: sky → `#7EB6FF` → lilac (not the old neon cyan/violet)
 
-Fonts (Google Fonts): Noto Sans SC, Syne, JetBrains Mono.
+Fonts: Times New Roman / Times (Latin) + Noto Serif SC / Songti SC / STSong / SimSun / 宋体 (CJK 小宋).
 
 ## Stack
 
