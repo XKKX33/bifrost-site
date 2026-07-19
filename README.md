@@ -4,22 +4,25 @@ Independent team brand site for BIFROST (Next.js App Router + TypeScript + Tailw
 
 ## Live
 
-- **Primary (Vercel):** https://bifrost-site-rho.vercel.app  
+- **Primary public link (GitHub Pages — preferred for mainland China):** https://xkkx33.github.io/bifrost-site/  
+  Static export with `basePath=/bifrost-site`. Use this when Vercel is blocked or slow.
+- **Alternate (Vercel):** https://bifrost-site-rho.vercel.app  
   - Project dashboard: https://vercel.com/xkkx33s-projects/bifrost-site  
-  - Team/account: [xkkx33s-projects](https://vercel.com/xkkx33s-projects)
-- **Secondary (GitHub Pages, manual/legacy):** https://xkkx33.github.io/bifrost-site/
+  - Team/account: [xkkx33s-projects](https://vercel.com/xkkx33s-projects)  
+  Keep dual deploy: Vercel stays the Node/server path; do **not** set `GITHUB_PAGES=true` on Vercel.
 - **Repository:** https://github.com/XKKX33/bifrost-site
 
 ### Deploy status (important)
 
 | Item | Current state |
 | --- | --- |
-| **Primary live site** | https://bifrost-site-rho.vercel.app (Vercel production) |
+| **Primary public (China-friendly)** | https://xkkx33.github.io/bifrost-site/ (GitHub Pages `gh-pages`) |
+| **Alternate** | https://bifrost-site-rho.vercel.app (Vercel production) |
 | Vercel project | `xkkx33s-projects/bifrost-site` — default Next.js build (**do not** set `GITHUB_PAGES=true` on Vercel) |
-| GitHub Pages | Secondary / manual fallback only |
-| Auto-deploy from `main` (Vercel) | Prefer connecting the GitHub repo in the Vercel dashboard (Git → Connect Repository → `XKKX33/bifrost-site`) |
+| GitHub Pages | Manual static export (`GITHUB_PAGES=true` + `npm run deploy:pages`) |
+| Auto-deploy from `main` (Vercel) | Optional: connect the GitHub repo in the Vercel dashboard |
 
-**Preferred path:** push to `main` → Vercel production. GitHub Pages is optional static export only.
+**Dual deploy:** Vercel = server build without `basePath`. GitHub Pages = static `out/` with `basePath=/bifrost-site` for public access when Vercel is unreachable.
 
 #### Vercel deploy (CLI)
 
@@ -37,9 +40,9 @@ Dashboard: https://vercel.com/xkkx33s-projects/bifrost-site
 
 If CLI cannot attach GitHub, link in UI: Project → Settings → Git → Connect `XKKX33/bifrost-site` (install Vercel GitHub App if prompted). Future `main` pushes then auto-deploy.
 
-#### GitHub Pages (secondary / manual)
+#### GitHub Pages (primary public / China)
 
-Pages remains a static-export fallback (`GITHUB_PAGES=true` + `basePath`). It is **not** the primary host.
+Public static host (`GITHUB_PAGES=true` + `basePath=/bifrost-site`). Redeploy after meaningful `main` changes so China users get the latest build.
 
 Optional Actions workflow: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) — needs `workflow` scope on `gh` to push, then repo Settings → Pages → Source: GitHub Actions.
 
