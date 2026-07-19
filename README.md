@@ -7,7 +7,55 @@ Independent team brand site for BIFROST (Next.js App Router + TypeScript + Tailw
 - **GitHub Pages:** https://xkkx33.github.io/bifrost-site/
 - **Repository:** https://github.com/XKKX33/bifrost-site
 
-Deploy is automatic on every push to `main` via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) (`GITHUB_PAGES=true` → static `out/` → GitHub Pages).
+### Deploy status (important)
+
+| Item | Current state |
+| --- | --- |
+| Live site | https://xkkx33.github.io/bifrost-site/ |
+| Pages source | **`gh-pages` branch** (legacy “Deploy from a branch”), **not** GitHub Actions |
+| Custom Actions workflow on remote | **Missing** — `deploy-pages.yml` is only local until pushed with `workflow` scope |
+| Auto-update when others push `main` | **NO** (until Actions is enabled; see below) |
+
+**Today:** only pushes to **`gh-pages`** update the live site. Pushes to `main` alone do **not**.
+
+#### One-time: enable auto-deploy from `main` (preferred)
+
+GitHub OAuth tokens need the **`workflow`** scope to create/update `.github/workflows/*`. Current `gh` login only has `repo` / `read:org` / `gist`.
+
+```bash
+# 1) Re-auth with workflow scope (browser device flow)
+gh auth refresh -h github.com -s workflow,repo,read:org,gist
+
+# 2) Commit + push the local workflow (file already in this repo)
+git add .github/workflows/deploy-pages.yml
+git commit -m "ci: Deploy GitHub Pages on push to main"
+git push origin main
+
+# 3) Repo Settings → Pages → Build and deployment → Source: GitHub Actions
+#    (or after first successful run, switch from "Deploy from a branch")
+
+# 4) Confirm
+gh run list --repo XKKX33/bifrost-site
+```
+
+Workflow: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) — on `push` to `main` / `workflow_dispatch`: `npm ci` → `GITHUB_PAGES=true` build → `fix:rsc` → `deploy-pages`.
+
+#### Manual redeploy (until Actions is live)
+
+Anyone with write access (or owner) after merging to `main`:
+
+```powershell
+# From repo root (PowerShell)
+$env:GITHUB_PAGES='true'
+$env:NEXT_PUBLIC_REPO_NAME='bifrost-site'
+npm ci
+npm run build
+npm run fix:rsc
+# then publish out/ to gh-pages, e.g.:
+npm run deploy:pages
+```
+
+Or use GitHub UI: Actions is empty for custom deploys until step 2 above; until then update **`gh-pages`** only.
 
 ## Scripts
 
