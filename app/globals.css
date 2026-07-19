@@ -50,9 +50,12 @@
   --color-glacier-cyan: var(--glacier-cyan);
   --color-glacier-blue: var(--glacier-blue);
   --color-glacier-violet: var(--glacier-violet);
-  --font-sans: "Noto Sans SC", "Syne", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Syne", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong",
+    "SimSun", "宋体", serif;
+  --font-display: "Times New Roman", Times, "Noto Serif SC", "Songti SC",
+    "STSong", "SimSun", "宋体", serif;
+  --font-mono: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong",
+    "SimSun", "宋体", ui-monospace, monospace;
 }
 
 *,
