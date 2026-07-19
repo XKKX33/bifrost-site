@@ -2,9 +2,25 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
 import { getTeam } from "@/content/team";
+import type { PhilosophyKey } from "@/content/team";
+import type { MemberSlug } from "@/content/members";
 
 type TeamPageProps = {
   locale: Locale;
+};
+
+type TeamAccent = "sky" | "peach" | "mint";
+
+const MEMBER_ACCENT: Record<MemberSlug, TeamAccent> = {
+  "kuang-xuan": "sky",
+  "member-b": "peach",
+  "member-c": "mint",
+};
+
+const PHILOSOPHY_ACCENT: Record<PhilosophyKey, TeamAccent> = {
+  anticipate: "sky",
+  connect: "peach",
+  decide: "mint",
 };
 
 /**
@@ -34,7 +50,11 @@ export function TeamPage({ locale }: TeamPageProps) {
         </h2>
         <ul className="team-philosophy">
           {team.philosophy.map((pillar) => (
-            <li key={pillar.key} className="team-philosophy__item">
+            <li
+              key={pillar.key}
+              className="team-philosophy__item"
+              data-accent={PHILOSOPHY_ACCENT[pillar.key]}
+            >
               <span className="team-philosophy__key" aria-hidden>
                 {pillar.key}
               </span>
@@ -82,7 +102,11 @@ export function TeamPage({ locale }: TeamPageProps) {
             const href = localePath(locale, `/team/${member.slug}`);
             return (
               <li key={member.slug}>
-                <Link href={href} className="team-member-card">
+                <Link
+                  href={href}
+                  className="team-member-card"
+                  data-accent={MEMBER_ACCENT[member.slug]}
+                >
                   <span className="team-member-card__monogram" aria-hidden>
                     {member.monogram}
                   </span>

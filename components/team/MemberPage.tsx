@@ -3,12 +3,28 @@ import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
 import { getMember, getTeam } from "@/content/team";
 import type { TeamMember } from "@/content/team";
+import type { MemberSlug } from "@/content/members";
 import { getUi } from "@/content/i18n";
 
 type MemberPageProps = {
   locale: Locale;
   slug: string;
 };
+
+type TeamAccent = "sky" | "peach" | "mint";
+
+const MEMBER_ACCENT: Record<MemberSlug, TeamAccent> = {
+  "kuang-xuan": "sky",
+  "member-b": "peach",
+  "member-c": "mint",
+};
+
+function accentForSlug(slug: string): TeamAccent | undefined {
+  if (slug in MEMBER_ACCENT) {
+    return MEMBER_ACCENT[slug as MemberSlug];
+  }
+  return undefined;
+}
 
 type MemberLabels = {
   education: string;
@@ -214,9 +230,10 @@ export function MemberPage({ locale, slug }: MemberPageProps) {
   const ui = getUi(locale);
   const labels = labelsFor(locale);
   const teamHref = localePath(locale, "/team");
+  const accent = accentForSlug(member.slug);
 
   return (
-    <main className="member-page">
+    <main className="member-page" data-accent={accent}>
       <nav className="member-page__back" aria-label={ui.common.backToTeam}>
         <Link href={teamHref} className="member-page__back-link">
           ← {ui.common.backToTeam}
@@ -224,7 +241,11 @@ export function MemberPage({ locale, slug }: MemberPageProps) {
       </nav>
 
       <header className="member-page__hero">
-        <div className="member-page__monogram" aria-hidden>
+        <div
+          className="member-page__monogram"
+          data-accent={accent}
+          aria-hidden
+        >
           {member.monogram}
         </div>
         <div className="member-page__identity">
