@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Latin → Times (unicode-range); CJK → Noto Serif SC / Song — same stack, stable metrics */
+@font-face {
+  font-family: "BIFROST Text";
+  src: local("Times New Roman"), local("Times");
+  unicode-range: U+0000-00FF, U+0100-024F, U+2000-206F, U+2070-209F,
+    U+20A0-20CF, U+2100-214F;
+  font-display: swap;
+}
+
 /* BIFROST design tokens — warm paper + glacier accents (interactive only) */
 :root {
   --bg: #f2f0ea;
@@ -39,6 +48,7 @@
   --z-menu: 50;
   --z-cursor: 70;
   --z-transition: 55;
+  --font-en: "Times New Roman", Times, Georgia, serif;
 }
 
 @theme inline {
@@ -50,12 +60,12 @@
   --color-glacier-cyan: var(--glacier-cyan);
   --color-glacier-blue: var(--glacier-blue);
   --color-glacier-violet: var(--glacier-violet);
-  --font-sans: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong",
+  --font-sans: "BIFROST Text", "Noto Serif SC", "Songti SC", "STSong", "SimSun",
+    "宋体", serif;
+  --font-display: "BIFROST Text", "Noto Serif SC", "Songti SC", "STSong",
     "SimSun", "宋体", serif;
-  --font-display: "Times New Roman", Times, "Noto Serif SC", "Songti SC",
-    "STSong", "SimSun", "宋体", serif;
-  --font-mono: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong",
-    "SimSun", "宋体", ui-monospace, monospace;
+  --font-mono: "BIFROST Text", "Noto Serif SC", "Songti SC", "STSong", "SimSun",
+    "宋体", ui-monospace, monospace;
 }
 
 *,
@@ -87,6 +97,25 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  line-height: 1.75;
+  font-kerning: normal;
+  font-synthesis: none;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-en), "Noto Serif SC", "Songti SC", "STSong", "SimSun",
+    "宋体", serif;
+}
+
+.site-header__brand,
+.site-header__link,
+.home-hero__mark,
+.home-caps__token,
+.lang-switch {
+  font-family: var(--font-en);
 }
 
 /* Responsive polish: contain wide media / long tokens on small viewports */
@@ -289,7 +318,7 @@ body.has-custom-cursor button {
 }
 
 .site-header__brand {
-  font-family: var(--font-display);
+  font-family: var(--font-en);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -318,7 +347,7 @@ body.has-custom-cursor button {
 }
 
 .site-header__link {
-  font-family: var(--font-mono);
+  font-family: var(--font-en);
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -407,7 +436,7 @@ body.has-custom-cursor button {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  font-family: var(--font-mono);
+  font-family: var(--font-en);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1211,7 +1240,7 @@ body.has-custom-cursor button {
 }
 
 .home-caps__token {
-  font-family: var(--font-display);
+  font-family: var(--font-en);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   font-weight: 800;
   letter-spacing: 0.1em;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { CustomCursor } from "./CustomCursor";
 import { Loader } from "./Loader";
 import { MenuDrawer } from "./MenuDrawer";
@@ -13,12 +13,13 @@ type AppChromeProps = {
   children: ReactNode;
 };
 
-/**
- * Brand chrome shell: loader, header, full-screen menu, cursor, Lenis, bridge transition.
- */
 export function AppChrome({ children }: AppChromeProps) {
-  const { ui } = useUi();
+  const { locale, ui } = useUi();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === "en" ? "en" : "zh-CN";
+  }, [locale]);
 
   const toggleMenu = useCallback(() => {
     setMenuOpen((v) => !v);
