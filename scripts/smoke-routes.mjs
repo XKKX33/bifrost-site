@@ -156,10 +156,10 @@ const projectZh = read("content/project/zh.ts");
 check("project zh has 0.85", /0\.85/.test(projectZh));
 check("project zh has 方案预期", /方案预期/.test(projectZh));
 
-// ——— DecisionLoop presence (both locales) ———
+// ——— BIFROST presence (both locales) ———
 const projectEn = read("content/project/en.ts");
-check("DecisionLoop in project zh", /DecisionLoop/.test(projectZh));
-check("DecisionLoop in project en", /DecisionLoop/.test(projectEn));
+check("BIFROST in project zh", /BIFROST/.test(projectZh));
+check("BIFROST in project en", /BIFROST/.test(projectEn));
 
 // ——— kuang-xuan slug ———
 const membersSrc = read("content/members.ts");

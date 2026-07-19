@@ -1,10 +1,10 @@
 import type { ProjectContent } from "./types";
 
-/** zh DecisionLoop project content. Metrics = 方案预期, not production KPI. */
+/** zh BIFROST project content. Metrics = 方案预期, not production KPI. */
 export const zhProject: ProjectContent = {
   definition: {
-    name: "DecisionLoop",
-    title: "DecisionLoop",
+    name: "BIFROST",
+    title: "BIFROST",
     subtitle: "制造业实时专属数据看板与决策闭环平台",
   },
   dualEngine: {
@@ -80,7 +80,7 @@ export const zhProject: ProjectContent = {
   metrics: {
     trustThreshold: 0.85,
     disclaimer:
-      "以下指标均为方案预期成效（projected），来自 DecisionLoop 开题/方案语境，非已上线生产 KPI，亦非 BIFROST 已在歌尔产线落地的实测结果。",
+      "以下指标均为方案预期成效（projected），来自 BIFROST 开题/方案语境，非已上线生产 KPI，亦非 BIFROST 已在歌尔产线落地的实测结果。",
     items: [
       {
         id: "dashboardSpeed",
@@ -150,7 +150,7 @@ export const zhProject: ProjectContent = {
   ],
   attribution: {
     scenario: "歌尔精密制造场景",
-    context: "DecisionLoop 方案语境（开题报告 / 方案设计）",
+    context: "BIFROST 方案语境（开题报告 / 方案设计）",
     metricsNote:
       "文中量化目标均为方案预期成效，不代表 BIFROST 已在歌尔生产环境交付或验证的 KPI。",
   },

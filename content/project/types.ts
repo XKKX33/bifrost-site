@@ -1,5 +1,5 @@
 /**
- * Typed DecisionLoop project content (data only, no UI).
+ * Typed BIFROST project content (data only, no UI).
  * Metrics are proposal projections (方案预期), not proven production KPI.
  */
 

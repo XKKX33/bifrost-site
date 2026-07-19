@@ -1,6 +1,6 @@
 /**
  * Typed UI chrome copy for bilingual BIFROST shell.
- * Page narrative / DecisionLoop / member resumes land in later tasks.
+ * Page narrative / BIFROST / member resumes land in later tasks.
  */
 
 export type UiNavItem = {

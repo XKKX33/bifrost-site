@@ -26,13 +26,13 @@ const skipStart = process.env.SMOKE_SKIP_START === "1";
 /** @type {{ path: string; mustInclude: string[] }[]} */
 const ROUTES = [
   { path: "/", mustInclude: ["BIFROST", "html"] },
-  { path: "/project", mustInclude: ["DecisionLoop", "html"] },
+  { path: "/project", mustInclude: ["BIFROST", "html"] },
   { path: "/team", mustInclude: ["html"] },
   { path: "/team/kuang-xuan", mustInclude: ["html"] },
   { path: "/about", mustInclude: ["html"] },
   { path: "/contact", mustInclude: ["html", "mailto:", "bifrost"] },
   { path: "/en", mustInclude: ["BIFROST", "html"] },
-  { path: "/en/project", mustInclude: ["DecisionLoop", "html"] },
+  { path: "/en/project", mustInclude: ["BIFROST", "html"] },
   { path: "/en/team", mustInclude: ["html"] },
   { path: "/en/about", mustInclude: ["html"] },
   { path: "/en/contact", mustInclude: ["html"] },

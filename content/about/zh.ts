@@ -41,7 +41,7 @@ export const zhAbout: AboutContent = {
       "好的决策系统不堆砌大屏，而缩短从信号到行动的路径。BIFROST 站在数据、模型与产品工程的交界处，把复杂问题压成可讨论、可分工、可验证的判断。",
   },
   links: {
-    project: "查看 DecisionLoop 项目",
+    project: "查看 BIFROST 项目",
     team: "认识团队",
     contact: "联系我们",
   },

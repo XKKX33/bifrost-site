@@ -1,4 +1,4 @@
-﻿# BIFROST
+# BIFROST
 
 Independent team brand site for BIFROST (Next.js App Router + TypeScript + Tailwind CSS 4).
 
@@ -73,7 +73,7 @@ npm run lint
 | Command | What it checks |
 | --- | --- |
 | `npm run smoke:i18n` | Locale path helpers (`localePath`, switch, strip) |
-| `npm run smoke:project` | DecisionLoop content contracts (steps, roles, 0.85, projected disclaimer) |
+| `npm run smoke:project` | BIFROST content contracts (steps, roles, 0.85, projected disclaimer) |
 | `npm run smoke:members` | Team/member content + privacy blocklist on team sources |
 | `npm run smoke:privacy` | No PII patterns in `content/`, `components/`, `app/` |
 | `npm run smoke:routes` | Required pages/components + Home `data-section` 02–10 + RoleSimulator markers |
@@ -94,7 +94,7 @@ npm run smoke:browser
 | Path (zh) | Path (en) | Job |
 | --- | --- | --- |
 | `/` | `/en` | Home narrative (sections 02–10; loader is chrome 01) |
-| `/project` | `/en/project` | DecisionLoop product page + RoleSimulator |
+| `/project` | `/en/project` | BIFROST product page + RoleSimulator |
 | `/team` | `/en/team` | People list, philosophy, capability bridge |
 | `/team/[slug]` | `/en/team/[slug]` | Member detail (`kuang-xuan`, `member-b`, `member-c`) |
 | `/about` | `/en/about` | Brand manifesto (not people) |
@@ -107,7 +107,7 @@ Explicit route mirrors under `app/en/**` (no middleware rewrite) keep static exp
 | Path | Role |
 | --- | --- |
 | `content/i18n/{types,zh,en,index}.ts` | UI chrome copy (`getUi`) |
-| `content/project/{types,zh,en,index}.ts` | DecisionLoop narrative (`getProject`) |
+| `content/project/{types,zh,en,index}.ts` | BIFROST narrative (`getProject`) |
 | `content/team/{types,zh,en,index}.ts` | Team + member records (`getTeam`, `getMember`, `listMembers`) |
 | `content/members.ts` | SSG slug list only (`MEMBER_SLUGS`) |
 | `content/about/{types,zh,en,index}.ts` | Brand about (`getAbout`) |

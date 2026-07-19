@@ -7,7 +7,7 @@
  * 3. Else: document fallback — static file checks under out/ only (or fail if neither).
  *
  * Routes: /, /project, /team, /team/kuang-xuan, /about, /contact, /en, /en/project
- * Assert HTTP 200 + key strings (BIFROST | DecisionLoop | etc).
+ * Assert HTTP 200 + key strings (BIFROST | BIFROST | etc).
  *
  * Run: node scripts/smoke-http.mjs
  */
@@ -25,13 +25,13 @@ const BASE = `http://127.0.0.1:${PORT}`;
 /** @type {{ path: string; needles: string[] }[]} */
 const ROUTES = [
   { path: "/", needles: ["BIFROST"] },
-  { path: "/project", needles: ["BIFROST", "DecisionLoop"] },
+  { path: "/project", needles: ["BIFROST"] },
   { path: "/team", needles: ["BIFROST"] },
   { path: "/team/kuang-xuan", needles: ["BIFROST"] },
   { path: "/about", needles: ["BIFROST"] },
   { path: "/contact", needles: ["BIFROST", "hello@bifrost.team"] },
   { path: "/en", needles: ["BIFROST"] },
-  { path: "/en/project", needles: ["BIFROST", "DecisionLoop"] },
+  { path: "/en/project", needles: ["BIFROST"] },
 ];
 
 /**
@@ -204,7 +204,7 @@ function staticOutFallback() {
     {
       path: "/project",
       file: "project/index.html",
-      needles: ["BIFROST", "DecisionLoop"],
+      needles: ["BIFROST"],
     },
     { path: "/team", file: "team/index.html", needles: ["BIFROST"] },
     {
@@ -222,7 +222,7 @@ function staticOutFallback() {
     {
       path: "/en/project",
       file: "en/project/index.html",
-      needles: ["BIFROST", "DecisionLoop"],
+      needles: ["BIFROST"],
     },
   ];
 

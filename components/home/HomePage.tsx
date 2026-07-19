@@ -236,7 +236,7 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </section>
 
-      {/* 06 DecisionLoop featured preview */}
+      {/* 06 BIFROST featured preview */}
       <section
         className="home-section home-featured"
         data-section="06"
@@ -286,17 +286,17 @@ export function HomePage({ locale }: HomePageProps) {
         aria-labelledby="home-loop-title"
       >
         <p className="home-kicker">
-          {isEn ? "Closed loop · DecisionLoop" : "决策闭环 · DecisionLoop"}
+          {isEn ? "Closed loop · BIFROST" : "决策闭环 · BIFROST"}
         </p>
         <h2 id="home-loop-title" className="home-section__title">
           {isEn
-            ? "5-step DecisionLoop: from signal to knowledge"
-            : "五步 DecisionLoop：从信号到沉淀"}
+            ? "5-step BIFROST: from signal to knowledge"
+            : "五步 BIFROST：从信号到沉淀"}
         </h2>
         <p className="home-loop__note">
           {isEn
-            ? "The closed loop is the proposal’s 5-step DecisionLoop (five layers). Home narrative sections map to this same loop—not nine invented steps."
-            : "闭环即提案中的五步 DecisionLoop（五层）。首页叙事段落映射同一闭环，而非另行发明九步。"}
+            ? "The closed loop is the proposal’s 5-step BIFROST (five layers). Home narrative sections map to this same loop—not nine invented steps."
+            : "闭环即提案中的五步 BIFROST（五层）。首页叙事段落映射同一闭环，而非另行发明九步。"}
         </p>
         <ol className="home-loop__list">
           {project.loopSteps.map((step) => (

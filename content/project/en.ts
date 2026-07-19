@@ -1,10 +1,10 @@
 import type { ProjectContent } from "./types";
 
-/** en DecisionLoop project content. Metrics = projected proposal outcomes. */
+/** en BIFROST project content. Metrics = projected proposal outcomes. */
 export const enProject: ProjectContent = {
   definition: {
-    name: "DecisionLoop",
-    title: "DecisionLoop",
+    name: "BIFROST",
+    title: "BIFROST",
     subtitle:
       "Real-time role-specific manufacturing dashboards and closed-loop decision platform",
   },
@@ -81,7 +81,7 @@ export const enProject: ProjectContent = {
   metrics: {
     trustThreshold: 0.85,
     disclaimer:
-      "All figures below are projected proposal outcomes (方案预期), from the DecisionLoop proposal context. They are not proven production KPIs, and they do not claim BIFROST has shipped or measured these results on Goertek lines.",
+      "All figures below are projected proposal outcomes (方案预期), from the BIFROST proposal context. They are not proven production KPIs, and they do not claim BIFROST has shipped or measured these results on Goertek lines.",
     items: [
       {
         id: "dashboardSpeed",
@@ -151,7 +151,7 @@ export const enProject: ProjectContent = {
   ],
   attribution: {
     scenario: "Goertek precision manufacturing scenario",
-    context: "DecisionLoop proposal context (opening report / solution design)",
+    context: "BIFROST proposal context (opening report / solution design)",
     metricsNote:
       "Quantitative targets are projected proposal outcomes only. They do not mean BIFROST has delivered or validated these KPIs in Goertek production.",
   },

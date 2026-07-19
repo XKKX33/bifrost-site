@@ -1113,7 +1113,7 @@ body.has-custom-cursor button {
   color: var(--ink-muted);
 }
 
-/* Featured DecisionLoop */
+/* Featured BIFROST */
 .home-featured__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1525,7 +1525,7 @@ body.has-custom-cursor button {
   }
 }
 
-/* ——— Project / DecisionLoop case page ——— */
+/* ——— Project / BIFROST case page ——— */
 .project-page {
   width: 100%;
   max-width: 72rem;

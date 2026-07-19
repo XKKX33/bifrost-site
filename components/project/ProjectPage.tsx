@@ -48,7 +48,7 @@ const SECTION: Record<
 };
 
 /**
- * DecisionLoop interactive case page — shared by `/project` and `/en/project`.
+ * BIFROST interactive case page — shared by `/project` and `/en/project`.
  */
 export function ProjectPage({ locale }: ProjectPageProps) {
   const project = getProject(locale);

@@ -41,7 +41,7 @@ export const enAbout: AboutContent = {
       "A good decision system does not pile on big screens; it shortens the path from signal to action. BIFROST sits at the edge of data, models, and product engineering — compressing hard problems into judgments that can be debated, owned, and verified.",
   },
   links: {
-    project: "View DecisionLoop",
+    project: "View BIFROST",
     team: "Meet the team",
     contact: "Contact us",
   },

@@ -8,7 +8,7 @@ test.describe("critical path", () => {
     await expect(page.getByText(/BIFROST/i).first()).toBeVisible();
 
     await page.goto("/project");
-    await expect(page.getByText(/DecisionLoop/i).first()).toBeVisible();
+    await expect(page.getByText(/BIFROST/i).first()).toBeVisible();
     const sim = page.getByTestId("role-simulator");
     await expect(sim).toBeVisible();
 

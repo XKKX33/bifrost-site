@@ -1,5 +1,5 @@
 /**
- * Node smoke checks for DecisionLoop project content modules (no TS loader).
+ * Node smoke checks for BIFROST project content modules (no TS loader).
  * Reads source files and asserts structural / key-value contracts.
  * Run: node scripts/smoke-project-content.mjs
  */
@@ -209,7 +209,7 @@ for (const locale of /** @type {const} */ (["zh", "en"])) {
 results.push(
   check(
     "both locales loaded",
-    files.zh.includes("DecisionLoop") && files.en.includes("DecisionLoop"),
+    files.zh.includes("BIFROST") && files.en.includes("BIFROST"),
   ),
 );
 
