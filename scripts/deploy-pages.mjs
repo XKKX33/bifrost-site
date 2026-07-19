@@ -7,7 +7,14 @@
  *   npm run deploy:pages
  */
 import { execSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 
@@ -17,7 +24,18 @@ const workDir = join(tmpdir(), `bifrost-gh-pages-${Date.now()}`);
 
 function sh(cmd, opts = {}) {
   console.log(`> ${cmd}`);
-  execSync(cmd, { stdio: "inherit", shell: true, ...opts });
+  execSync(cmd, {
+    stdio: "inherit",
+    shell: true,
+    ...opts,
+  });
+}
+
+function emptyDirKeepGit(dir) {
+  for (const name of readdirSync(dir)) {
+    if (name === ".git") continue;
+    rmSync(join(dir, name), { recursive: true, force: true });
+  }
 }
 
 process.env.GITHUB_PAGES = "true";
@@ -36,25 +54,14 @@ writeFileSync(join(outDir, ".nojekyll"), "");
 
 console.log("[deploy-pages] publishing out/ → origin/gh-pages…");
 mkdirSync(workDir, { recursive: true });
+
 try {
-  sh(`git fetch origin gh-pages`, { cwd: root });
+  sh("git fetch origin gh-pages", { cwd: root });
   sh(`git worktree add -B gh-pages "${workDir}" origin/gh-pages`, {
     cwd: root,
   });
 
-  for (const name of ["node_modules", ".git"]) {
-    // keep .git only
-  }
-  sh(
-    `git -C "${workDir}" ls-files -z | ForEach-Object { }`,
-    { cwd: root }
-  );
-  // Clear tracked tree without deleting .git
-  sh(`git rm -rf --quiet . 2>$null; git clean -fdx -e .git`, {
-    cwd: workDir,
-    env: process.env,
-  });
-
+  emptyDirKeepGit(workDir);
   cpSync(outDir, workDir, { recursive: true });
   writeFileSync(join(workDir, ".nojekyll"), "");
 
@@ -62,16 +69,21 @@ try {
     cwd: root,
     encoding: "utf8",
   }).trim();
+
   sh("git add -A", { cwd: workDir });
-  try {
+  const status = execSync("git status --porcelain", {
+    cwd: workDir,
+    encoding: "utf8",
+  }).trim();
+  if (!status) {
+    console.log("[deploy-pages] nothing to commit (already up to date)");
+  } else {
     sh(
       `git commit -m "deploy: sync main ${mainSha} to Pages (manual)"`,
       { cwd: workDir }
     );
-  } catch {
-    console.log("[deploy-pages] nothing to commit (already up to date)");
+    sh("git push origin gh-pages", { cwd: workDir });
   }
-  sh("git push origin gh-pages", { cwd: workDir });
 } finally {
   try {
     sh(`git worktree remove --force "${workDir}"`, { cwd: root });
