@@ -5,8 +5,8 @@
 .project-section--flow,
 .project-section--capabilities,
 .project-section--story {
-  --hybrid-line: rgba(20, 21, 18, 0.12);
-  --hybrid-card: rgba(255, 255, 255, 0.64);
+  --hybrid-line: var(--border);
+  --hybrid-card: var(--surface-soft);
 }
 
 /* 02 — aligned editorial cards */
@@ -24,7 +24,7 @@
   border: 1px solid var(--hybrid-line);
   border-radius: 1.25rem;
   background: var(--hybrid-card);
-  box-shadow: 0 1.2rem 3rem rgba(34, 34, 28, 0.045);
+  box-shadow: 0 1.2rem 3rem color-mix(in srgb, var(--ink) 4.5%, transparent);
   transition: transform 280ms cubic-bezier(.22,1,.36,1), box-shadow 280ms ease;
 }
 
@@ -57,7 +57,7 @@
 
 .project-section--why .project-problems__item:hover {
   transform: translateY(-0.35rem);
-  box-shadow: 0 1.5rem 3.5rem rgba(55, 57, 72, 0.09);
+  box-shadow: 0 1.5rem 3.5rem color-mix(in srgb, var(--ink) 9%, transparent);
 }
 
 /* 03 — one readable five-stage bridge */
@@ -68,7 +68,7 @@
   overflow: hidden;
   border: 1px solid var(--hybrid-line);
   border-radius: 1.3rem;
-  background: rgba(255, 255, 255, 0.46);
+  background: color-mix(in srgb, var(--surface) 46%, transparent);
 }
 
 .project-section--flow .project-flow::after {
@@ -79,7 +79,14 @@
   right: 2%;
   height: 1px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, #39c7e8, #536bff, #9157e5, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--glacier-cyan),
+    var(--glacier-blue),
+    var(--glacier-violet),
+    transparent
+  );
   background-size: 180% 100%;
   animation: hybrid-flow 5s ease-in-out infinite alternate;
 }
@@ -117,12 +124,15 @@
   border: 1px solid var(--hybrid-line);
   border-radius: 1.2rem;
   background: var(--hybrid-card);
-  box-shadow: 0 1.2rem 3rem rgba(34, 34, 28, 0.045);
+  box-shadow: 0 1.2rem 3rem color-mix(in srgb, var(--ink) 4.5%, transparent);
   transition: transform 280ms cubic-bezier(.22,1,.36,1), border-color 280ms ease;
 }
 
 .project-section--capabilities .project-themes__id { margin-bottom: auto; }
-.project-section--capabilities .project-themes__card:hover { transform: translateY(-.35rem); border-color: rgba(83,107,255,.28); }
+.project-section--capabilities .project-themes__card:hover {
+  transform: translateY(-.35rem);
+  border-color: color-mix(in srgb, var(--cta-start) 28%, transparent);
+}
 
 /* 06 — the same incident, scanned as five beats */
 .project-section--story .project-story {
@@ -139,7 +149,7 @@
   padding: 1.25rem;
   border: 1px solid var(--hybrid-line);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.48);
+  background: color-mix(in srgb, var(--surface) 48%, transparent);
 }
 
 .project-section--story .project-story__step { flex: 0 0 auto; }
@@ -181,10 +191,10 @@
   right: auto;
   transform: translateX(-50%);
   padding: 0 1rem;
-  border: 1px solid rgba(21, 22, 19, 0.12);
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
   border-radius: 999px;
-  background: rgba(243, 241, 235, 0.84);
-  box-shadow: 0 0.75rem 2.2rem rgba(33, 33, 27, 0.065);
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  box-shadow: 0 0.75rem 2.2rem color-mix(in srgb, var(--ink) 6.5%, transparent);
   backdrop-filter: blur(20px) saturate(1.18);
 }
 
@@ -217,7 +227,12 @@
   height: 1px;
   transform: scaleX(0);
   transform-origin: center;
-  background: linear-gradient(90deg, #39c7e8, #536bff, #9157e5);
+  background: linear-gradient(
+    90deg,
+    var(--glacier-cyan),
+    var(--glacier-blue),
+    var(--glacier-violet)
+  );
   transition: transform 220ms ease;
 }
 
