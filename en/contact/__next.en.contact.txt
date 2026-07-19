@@ -2,4 +2,4 @@
 2:I[39756,["/bifrost-site/_next/static/chunks/27aihd9f25l7z.js","/bifrost-site/_next/static/chunks/0qyn6cg2kbydt.js"],"default"]
 3:I[37457,["/bifrost-site/_next/static/chunks/27aihd9f25l7z.js","/bifrost-site/_next/static/chunks/0qyn6cg2kbydt.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"FJwDFPOhA8IqlEGihgctN"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"2v2R3Sm-qCRQY3Ec6daEm"}
