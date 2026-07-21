@@ -6,7 +6,7 @@
 
 import type { Locale } from "@/lib/i18n";
 
-export const DEFAULT_TEAM_EMAIL = "hello@bifrost.team";
+export const DEFAULT_TEAM_EMAIL = "kekeyee@outlook.com";
 
 /** GitHub org/repo placeholder until public. */
 export const GITHUB_PLACEHOLDER_URL = "";

@@ -6,7 +6,7 @@
  * - required page/component files exist
  * - HomePage has data-section 02–10
  * - RoleSimulator has data-testid="role-simulator" and aria-selected
- * - site-contact has hello@bifrost.team
+ * - site-contact has kekeyee@outlook.com
  * - project zh has 0.85 and 方案预期
  */
 
@@ -147,8 +147,8 @@ for (const g of getterChecks) {
 // ——— site-contact team email ———
 const contactSrc = read("content/site-contact.ts");
 check(
-  "site-contact has hello@bifrost.team",
-  /hello@bifrost\.team/.test(contactSrc),
+  "site-contact has kekeyee@outlook.com",
+  /kekeyee@outlook\.com/.test(contactSrc),
 );
 
 // ——— project zh metrics markers ———

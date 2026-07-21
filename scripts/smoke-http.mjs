@@ -29,7 +29,7 @@ const ROUTES = [
   { path: "/team", needles: ["BIFROST"] },
   { path: "/team/kuang-xuan", needles: ["BIFROST"] },
   { path: "/about", needles: ["BIFROST"] },
-  { path: "/contact", needles: ["BIFROST", "hello@bifrost.team"] },
+  { path: "/contact", needles: ["BIFROST", "kekeyee@outlook.com"] },
   { path: "/en", needles: ["BIFROST"] },
   { path: "/en/project", needles: ["BIFROST"] },
 ];
@@ -216,7 +216,7 @@ function staticOutFallback() {
     {
       path: "/contact",
       file: "contact/index.html",
-      needles: ["BIFROST", "hello@bifrost.team"],
+      needles: ["BIFROST", "kekeyee@outlook.com"],
     },
     { path: "/en", file: "en/index.html", needles: ["BIFROST"] },
     {

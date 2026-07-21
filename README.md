@@ -53,7 +53,7 @@ Manual Pages redeploy:
 $env:GITHUB_PAGES='true'
 $env:NEXT_PUBLIC_REPO_NAME='bifrost-site'
 npm ci
-npm run build
+npm run build -- --webpack
 npm run fix:rsc
 npm run deploy:pages
 ```
@@ -142,7 +142,7 @@ npm run fix:rsc   # required after local Windows export; no-op if already flat
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `NEXT_PUBLIC_TEAM_EMAIL` | Public team inbox | `hello@bifrost.team` |
+| `NEXT_PUBLIC_TEAM_EMAIL` | Public team inbox | `kekeyee@outlook.com` |
 | `NEXT_PUBLIC_GITHUB_URL` | Public GitHub org/repo URL | empty → UI shows TBA |
 | `NEXT_PUBLIC_REPO_NAME` | GH Pages repo segment for `basePath` | `bifrost-site` |
 | `GITHUB_PAGES` / `GITHUB_ACTIONS` | Enable static export + basePath | unset = server build |
@@ -157,7 +157,7 @@ Do **not** publish personal PII in `content/`, `components/`, or `app/`:
 - 户籍 / 政治面貌 / 共青团
 - Personal QQ email: `2468857063@qq.com`
 
-Public contact is team email only (`hello@bifrost.team` or `NEXT_PUBLIC_TEAM_EMAIL`). No public phone on Contact.
+Public contact is team email only (`kekeyee@outlook.com` or `NEXT_PUBLIC_TEAM_EMAIL`). No public phone on Contact.
 
 Enforce with:
 
@@ -195,4 +195,3 @@ scripts/             # smoke:*.mjs
 ```
 
 Do **not** mutate the personal portfolio repo; this product is `bifrost-site` only.
-

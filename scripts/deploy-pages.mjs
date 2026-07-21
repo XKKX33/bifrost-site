@@ -42,8 +42,8 @@ process.env.GITHUB_PAGES = "true";
 process.env.NEXT_PUBLIC_REPO_NAME =
   process.env.NEXT_PUBLIC_REPO_NAME || "bifrost-site";
 
-console.log("[deploy-pages] building static export…");
-sh("npm run build", { cwd: root, env: process.env });
+console.log("[deploy-pages] building static export with webpack…");
+sh("npm run build -- --webpack", { cwd: root, env: process.env });
 sh("npm run fix:rsc", { cwd: root });
 
 if (!existsSync(outDir)) {
