@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
-2:I[39756,["/bifrost-site/_next/static/chunks/30fdhba9tls82.js","/bifrost-site/_next/static/chunks/0qyn6cg2kbydt.js"],"default"]
-3:I[37457,["/bifrost-site/_next/static/chunks/30fdhba9tls82.js","/bifrost-site/_next/static/chunks/0qyn6cg2kbydt.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"a06gaPyTEGbZCpXTAwxm8"}
+2:I[7121,[],""]
+3:I[4581,[],""]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Ka9Wpb_Iw767VQv3nt1to"}
